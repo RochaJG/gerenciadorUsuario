@@ -1,26 +1,22 @@
 <?php
-    //Pega o login e a senha do usuario
-    $login = $_POST['login'];
-    $senha = MD5($_POST['senha']); // É preciso criptografar a senha para testar com a do banco
+    require '..\conexao.php';
 
-    $banco = mysqli_connect('localhost', 'root', 'root', 'agenda');
+    $matricula = $_POST['matricula'];
+    $senha = MD5($_POST['senha']);
 
-    // Procura um usuário que tenha as informações passadas no login
-    $query = "SELECT * FROM usuario
-              WHERE username = '$login' or email = '$login' and senha = '$senha'";
+    $banco = conectarBanco();
 
-    $resultado = mysqli_query($banco, $query);
+    $buscar = "SELECT * FROM funcionarios WHERE matricula = '$matricula' AND senha = '$senha'";
+    $resultado = mysqli_query($banco, $buscar);
 
-    // Se o resultado da função for igual a 1 é porque já existe um usuário cadastrado com esses dados
     if(mysqli_num_rows($resultado) == 1){
         header('Location:login-realizado.html');
-        mysqli_close($banco);
     } else {
         echo '<script>
-                alert("Senha e login não correspodem");
+                alert("Matrícula ou senha estão incorretos");
                 history.back();
-                </script>';
-        mysqli_close($banco);
+              </script>';
     }
 
+    mysqli_close($banco);
  ?>
