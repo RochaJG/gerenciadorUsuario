@@ -7,7 +7,7 @@ create table if not exists funcionarios (
     nome varchar(20) not null,
     sobrenome varchar(20) not null,
 	senha varchar(60) not null,
-    cargo int(2) not null,
+    cargo varchar(20) not null,
     salario decimal(8,2) not null,
     primary key(matricula)
 );
