@@ -5,11 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="cadastro.css">
-        <title>Cadastro de Usuário</title>
+        <title>Cadastro de Funcionário</title>
     </head>
 
     <body>
-        <h2>Cadastre - se</h2>
+        <h2>Cadastrar</h2>
 
         <!-- O atributo 'action' informa paara onde os valores serão mandados.
         O atributo 'method' informa como os valores são ser passados,
@@ -18,27 +18,33 @@
             <table>
                 <tr>
                     <!-- O atributo 'name' será usando para identificar a informação no PHP -->
-                    <td><input type="text" name="nome" placeholder="Digite seu nome"   ></td>
+                    <td><input type="text" name="nome" placeholder="Nome"   ></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="sobrenome" placeholder="Digite seu sobrenome"   ></td>
+                    <td><input type="text" name="sobrenome" placeholder="Sobrenome"   ></td>
                 </tr>
                 <tr>
-                    <td><input type="text"  name="username" placeholder="Digite seu username"   </td>
+                    <td><input type="password" name="senha" placeholder="Senha"   ></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="email" placeholder="Digite seu e-mail"   ></td>
+                    <td><input type="password" name="senha-confirm" placeholder="Confirme a senha"   ></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="email-confirm" placeholder="Confirme seu E-mail"   ></td>
+                    <td>
+                        <select id="cargos" name="cargos" onchange="pegarSalario();">
+                            <option hidden>Selecione o cargo</option>
+                            <option value="caixa">Caixa</option>
+                            <option value="empacotador">Empacotador</option>
+                            <option value="estoquista">Estoquista</option>
+                            <option value="faxineiro">Faxineiro</option>
+                            <option value="seguranca">Segurança</option>
+                        </select>
+                    </td>
                 </tr>
                 <tr>
-                    <td><input type="password" name="senha" placeholder="Informe sua senha"   ></td>
-                </tr>
-                <tr>
-                    <td><input type="password" name="senha-confirm" placeholder="Confirme sua senha"   ></td>
-                </tr>
-                <tr>
+                    <tr>
+                        <td><input type="text" name="salario" id="salario" placeholder="Salário" readonly="readonly"></td>
+                    </tr>
                     <td>
                         <button type="submit">Cadastrar</button>
                         <button type="reset">Resetar</button></td>
@@ -47,5 +53,22 @@
             </table>
         </form>
     </body>
+
+    <script>
+        function pegarSalario(){
+            salarios = {
+                'caixa':'1100',
+                'empacotador': '1200',
+                'estoquista':'1150',
+                'faxineiro':'1000',
+                'seguranca':'1250'
+            };
+
+            let cargo = document.getElementById('cargos').value;
+            let salario = document.getElementById('salario');
+
+            salario.value = salarios[cargo];
+        }
+    </script>
 
 </html>
