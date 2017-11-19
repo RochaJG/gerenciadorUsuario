@@ -11,27 +11,23 @@
     <body>
         <h2>Cadastrar</h2>
 
-        <!-- O atributo 'action' informa paara onde os valores serão mandados.
-        O atributo 'method' informa como os valores são ser passados,
-        neste caso, pelo metodo 'POST'' -->
         <form class="cadastro" action="cadastro.php" method="POST">
             <table>
                 <tr>
-                    <!-- O atributo 'name' será usando para identificar a informação no PHP -->
-                    <td><input type="text" name="nome" placeholder="Nome"   ></td>
+                    <td><input type="text" name="nome" placeholder="Nome" required></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="sobrenome" placeholder="Sobrenome"   ></td>
+                    <td><input type="text" name="sobrenome" placeholder="Sobrenome" required></td>
                 </tr>
                 <tr>
-                    <td><input type="password" name="senha" placeholder="Senha"   ></td>
+                    <td><input type="password" name="senha" placeholder="Senha" required></td>
                 </tr>
                 <tr>
-                    <td><input type="password" name="senha-confirm" placeholder="Confirme a senha"   ></td>
+                    <td><input type="password" name="senha-confirm" placeholder="Confirme a senha" required></td>
                 </tr>
                 <tr>
                     <td>
-                        <select id="cargos" name="cargos" onchange="pegarSalario();">
+                        <select id="cargos" name="cargos" onchange="pegarSalario();" required>
                             <option hidden>Selecione o cargo</option>
                             <option value="caixa">Caixa</option>
                             <option value="empacotador">Empacotador</option>
@@ -43,7 +39,7 @@
                 </tr>
                 <tr>
                     <tr>
-                        <td><input type="text" name="salario" id="salario" placeholder="Salário" readonly="readonly"></td>
+                        <td><input type="text" name="salario" id="salario" placeholder="Salário" readonly required></td>
                     </tr>
                     <td>
                         <button type="submit">Cadastrar</button>

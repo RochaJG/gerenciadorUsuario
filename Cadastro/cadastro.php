@@ -1,5 +1,5 @@
 <?php
-    require 'C:\xampp\htdocs\Sistema de Ponto\gerenciadorUsuario\conexao.php';
+    require '..\conexao.php';
 
     $nome = $_POST['nome'];
     $sobrenome = $_POST['sobrenome'];
@@ -7,7 +7,7 @@
     $cargo = $_POST['cargos'];
     $salario = $_POST['salario'];
 
-    $banco = mysqli_connect('localhost', 'root', 'root', 'sis_gerenciador') or die(mysqli_error);
+    $banco = conectarBanco();
     
     $inserir = "INSERT INTO funcionarios(nome, sobrenome, senha, cargo, salario)
                 VALUES ('$nome', '$sobrenome', '$senha', '$cargo', '$salario')" or die(mysqli_error);
