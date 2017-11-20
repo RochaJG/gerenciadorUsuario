@@ -13,6 +13,8 @@
         $tupla = mysqli_fetch_assoc($resultado);
         if($tupla['cargo'] == 'gerente'){
             header('Location:..\Gerenciar Funcionarios\tela-gerente.php');
+        } else {
+            header('Location:..\Funcionario\tela-funcionarios.php');
         }
     } else {
         echo '<script>
