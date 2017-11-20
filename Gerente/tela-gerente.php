@@ -23,6 +23,9 @@
         $resultado = mysqli_query($banco, $buscar);
 
         while($tupla = mysqli_fetch_assoc($resultado)){
+            if($tupla['cargo'] == 'gerente'){
+                continue;
+            }
             printf("<b>Funcionário</b>: %s %s <b>Cargo</b>: %s <br>",
             $tupla['nome'], $tupla['sobrenome'], $tupla['cargo']);
         }
