@@ -1,4 +1,6 @@
 <?php
+    session_start();
+    $matricula = $_SESSION['matricula'];
     require '..\conexao.php';
     $banco = conectarBanco();
     $buscar = "SELECT * FROM funcionarios";
@@ -16,7 +18,7 @@
 
     <body>
         <?php
-            $query = "SELECT nome FROM funcionarios WHERE cargo = 'gerente'";
+            $query = "SELECT nome FROM funcionarios WHERE matricula = '$matricula'";
             $buscar_nome = mysqli_query($banco, $query);
             $nome = mysqli_fetch_assoc($buscar_nome);
          ?>
