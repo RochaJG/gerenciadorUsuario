@@ -10,7 +10,8 @@
 
     <body>
         <h2>Funcionários</h2>
-
+        <a href="..\Atualizar\Atualizar-login.html" >Atualizar Dados</a>
+        <br>
     </body>
 
     <?php
@@ -21,10 +22,9 @@
         $resultado = mysqli_query($banco, $buscar);
 
         while($tupla = mysqli_fetch_assoc($resultado)){
-            printf("<b>Funcionário</b>: %s %s <b>Cargo</b>: %s",
+            printf("<b>Funcionário</b>: %s %s <b>Cargo</b>: %s <br>",
             $tupla['nome'], $tupla['sobrenome'], $tupla['cargo']);
         }
-        
-     ?>
 
+     ?>
 </html>
