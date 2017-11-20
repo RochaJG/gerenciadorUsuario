@@ -11,6 +11,7 @@
     <body>
         <h2>Funcionários</h2>
         <a href="..\Atualizar\Atualizar-login.html" >Atualizar Dados</a>
+        <a href="..\Cadastrar\cadastro.html">Cadastrar novo funcionário</a>
         <br>
         <br>
     </body>
