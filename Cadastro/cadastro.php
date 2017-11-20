@@ -8,14 +8,14 @@
     $salario = $_POST['salario'];
 
     $banco = conectarBanco();
-    
+
     $inserir = "INSERT INTO funcionarios(nome, sobrenome, senha, cargo, salario)
-                VALUES ('$nome', '$sobrenome', '$senha', '$cargo', '$salario')" or die(mysqli_error);
+                VALUES ('$nome', '$sobrenome', '$senha', '$cargo', '$salario')";
 
     $resultado = mysqli_query($banco, $inserir);
 
     if($resultado){
-        header('Location:cadastro-realizado.html');
+        header('Location:cadastro-realizado.php');
     }
 
     mysqli_close($banco);
