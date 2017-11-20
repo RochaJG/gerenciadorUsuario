@@ -1,11 +1,15 @@
 <?php
-    require('atualizar-login.php');
+    session_start();
 
+    require('..\conexao.php');
+
+    $matricula = $_SESSION['matricula'];
     $banco = conectarBanco();
 
     $nome = $_POST['nome'];
     $sobrenome = $_POST['sobrenome'];
     $senha = MD5($_POST['senha']);
+
 
     if(!empty($_POST['nome'])){
         $atualizar = "UPDATE funcionarios SET nome = '$nome' WHERE matricula = '$matricula'";
@@ -21,6 +25,8 @@
     }
 
     mysqli_close($banco);
+
+    session_destroy();
 
     header('Location:atualizar-sucesso.html');
  ?>
