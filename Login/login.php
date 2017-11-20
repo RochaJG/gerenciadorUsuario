@@ -1,9 +1,12 @@
 <?php
-    require '..\conexao.php';
+    session_start();
+
+    require ('..\conexao.php');
 
     $matricula = $_POST['matricula'];
     $senha = MD5($_POST['senha']);
-
+    $_SESSION['matricula'] = $matricula;
+    
     $banco = conectarBanco();
 
     $buscar = "SELECT * FROM funcionarios WHERE matricula = '$matricula' AND senha = '$senha'";
