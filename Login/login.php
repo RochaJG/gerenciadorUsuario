@@ -12,7 +12,7 @@
     if(mysqli_num_rows($resultado) == 1){
         $tupla = mysqli_fetch_assoc($resultado);
         if($tupla['cargo'] == 'gerente'){
-            header('Location:..\Gerenciar Funcionarios\tela-gerente.php');
+            header('Location:..\Gerente\tela-gerente.php');
         } else {
             header('Location:..\Funcionario\tela-funcionarios.php');
         }
