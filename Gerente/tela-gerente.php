@@ -3,8 +3,6 @@
     $matricula = $_SESSION['matricula'];
     require '..\conexao.php';
     $banco = conectarBanco();
-    $buscar = "SELECT * FROM funcionarios";
-    $funcionarios = mysqli_query($banco, $buscar);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -22,14 +20,18 @@
             $buscar_nome = mysqli_query($banco, $query);
             $nome = mysqli_fetch_assoc($buscar_nome);
          ?>
-        <h2>Funcionários</h2>
-        <h2>Olá, <?php printf($nome['nome']); ?></h2>
-        <a href="..\Atualizar\Atualizar-dados.html" >Atualizar seus Dados</a>
-        <a href="..\Cadastro\cadastro.html">Cadastrar novo funcionário</a>
-        <br>
-        <br>
+         <h2>Olá, <?php printf($nome['nome']); ?></h2>
+         <a href="..\Atualizar\Atualizar-dados.html" >Atualizar seus Dados</a>
+         <a href="..\Cadastro\cadastro.html">Cadastrar novo funcionário</a>
 
+         <br>
+
+        <h2>Funcionários</h2>
         <?php
+
+            $buscar = "SELECT * FROM funcionarios";
+            $funcionarios = mysqli_query($banco, $buscar);
+
             while($tupla = mysqli_fetch_assoc($funcionarios)){
                 if($tupla['cargo'] == 'gerente'){
                     continue;
@@ -37,9 +39,7 @@
                 printf("<b>Funcionário</b>: %s %s <b>Cargo</b>: %s <br>",
                 $tupla['nome'], $tupla['sobrenome'], $tupla['cargo']);
             }
-
          ?>
-
     </body>
 
     </html>
