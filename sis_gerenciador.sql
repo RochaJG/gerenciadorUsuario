@@ -2,7 +2,7 @@ create database sis_gerenciador;
 
 use sis_gerenciador;
 
-create table if not exists funcionarios (
+create table if not exists funcionarios(
     matricula bigint not null auto_increment,
     nome varchar(20) not null,
     sobrenome varchar(20) not null,
@@ -12,16 +12,16 @@ create table if not exists funcionarios (
     primary key(matricula)
 );
 
-create table if not exists entradas (
+create table if not exists entradas(
 	mat_func bigint not null,
     horario datetime not null,
-    primary key(mat_func),
+    primary key(mat_func, horario),
     foreign key(mat_func) references funcionarios(matricula)
 );
 
-create table if not exists saidas (
+create table if not exists saidas(
 	mat_func bigint not null,
     horario datetime not null,
-    primary key(mat_func),
+    primary key(mat_func, horario),
     foreign key(mat_func) references funcionarios(matricula)
 );
