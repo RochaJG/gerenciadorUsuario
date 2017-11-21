@@ -26,7 +26,5 @@
 
     mysqli_close($banco);
 
-    session_destroy();
-
     header('Location:atualizar-sucesso.html');
  ?>
