@@ -17,7 +17,7 @@
         if($tupla['cargo'] == 'gerente'){
             header('Location:..\Gerente\tela-gerente.php');
         } else {
-            header('Location:..\Funcionario\tela-funcionarios.php');
+            header('Location:..\Funcionario\tela-funcionarios.html');
         }
     } else {
         echo '<script>
