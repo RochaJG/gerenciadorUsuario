@@ -25,7 +25,7 @@
             ?>
         <br>
         <br>
-        <a href="..\Login\login.html">Ir para a página de login</a>
+        <a href="..\index.html">Ir para a página de login</a>
 
     </body>
 
