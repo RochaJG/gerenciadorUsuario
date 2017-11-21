@@ -28,10 +28,10 @@
         <br>
         <br>
 
-        <form class="" action="enviar-hora.php" method="GET">
+        <form class="" action="..\enviar-hora.php" method="GET">
             <p id="hora" name="hora"></p>
-            <button type="submit" name="btnChegada"><a href="enviar-hora.php?btnChegada=1">Cheguei</a></button>
-            <button type="button" name="btnSaida"><a href="enviar-hora.php?btnSaida=1">Sai</a></button>
+            <button type="submit" name="btnChegada"><a href="..\enviar-hora.php?btnChegada=1">Cheguei</a></button>
+            <button type="button" name="btnSaida"><a href="..\enviar-hora.php?btnSaida=1">Sai</a></button>
         </form>
     </body>
 
