@@ -15,6 +15,7 @@
     if(mysqli_num_rows($resultado) == 1){
         $tupla = mysqli_fetch_assoc($resultado);
         if($tupla['cargo'] == 'gerente'){
+            $_SESSION['cargo'] = $tupla['cargo'];
             header('Location:..\Gerente\tela-gerente.php');
         } else {
             header('Location:..\Funcionario\tela-funcionarios.php');
