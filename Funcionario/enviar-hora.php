@@ -19,7 +19,15 @@
         }
 
     } else if(isset($_GET['btnSaida']) == 1){
-        echo 'Não';
+        $inserir = "INSERT INTO saidas(mat_func, horario)
+                   VALUES('$matricula', now())";
+
+        $resultado = mysqli_query($banco, $inserir) or die( "Erro na consulta: " . mysqli_error($banco) );
+
+        if($resultado){
+            echo '<h3>Horário de saida inserido</h3>';
+            echo '<a href="..\Login\login.html">Voltar a página inicial</a>';
+        }
     }
 
      mysqli_close($banco);
