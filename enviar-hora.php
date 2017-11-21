@@ -2,7 +2,7 @@
     session_start();
     $matricula = $_SESSION['matricula'];
 
-    require('..\conexao.php');
+    require('conexao.php');
 
     $banco = conectarBanco();
 
@@ -14,8 +14,13 @@
         $resultado = mysqli_query($banco, $inserir) or die( "Erro na consulta: " . mysqli_error($banco) );
 
         if($resultado){
-            echo '<h3>Horário de entrada inserido</h3>';
-            echo '<a href="..\Login\login.html">Voltar a página inicial</a>';
+            if(isset($_SESSION['cargo'])){
+                echo '<h3>Horário de entrada inserido</h3>';
+                echo '<a href="Gerente\tela-gerente.php">Voltar a página inicial</a>';
+            } else {
+                echo '<h3>Horário de entrada inserido</h3>';
+                echo '<a href="Login\login.html">Voltar a página inicial</a>';
+            }
         }
 
     } else if(isset($_GET['btnSaida']) == 1){
@@ -26,7 +31,7 @@
 
         if($resultado){
             echo '<h3>Horário de saida inserido</h3>';
-            echo '<a href="..\Login\login.html">Voltar a página inicial</a>';
+            echo '<a href="Login\login.html">Voltar a página inicial</a>';
         }
     }
 
